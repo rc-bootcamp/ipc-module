@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Ruff stuff:
+.ruff_cache/
+
+# Twine stuff:
+*.pypirc
+
+# Development directory
+development/
+
+# MkDocs build directory
+site/

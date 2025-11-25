@@ -1,0 +1,42 @@
+site_name: "ipc-module"
+repo_url: https://github.com/rc-bootcamp/ipc-module
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      primary: blue
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: blue grey
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  description: this is the page I want TOC to only display level 2 max.
+  toc_depth: 2
+
+plugins:
+- search
+- mkdocstrings
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+  - Home: README.md
+  - Module:
+    - config: config.md
+    - helper: helper.md
+    - polynomial: polynomial.md
+    - profiler: profiler.md
+    - regressor: regressor.md
