@@ -388,10 +388,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reporting-issues" class="md-nav__link">
+  <a href="#reporting-issues-and-suggestions-for-improvement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reporting issues
+        Reporting issues and suggestions for improvement
       
     </span>
   </a>
@@ -411,6 +411,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact
+      
+    </span>
+  </a>
   
 </li>
       
@@ -705,10 +716,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reporting-issues" class="md-nav__link">
+  <a href="#reporting-issues-and-suggestions-for-improvement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reporting issues
+        Reporting issues and suggestions for improvement
       
     </span>
   </a>
@@ -728,6 +739,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact
+      
+    </span>
+  </a>
   
 </li>
       
@@ -762,8 +784,8 @@ It is also possible to measure the IPC for arbitrary input time series distribut
 <p>Alternatively, you can use various project management tools (such as <code>uv</code>, <code>poetry</code>, <code>pipenv</code>, etc.) to install it.</p>
 <h2 id="usage">Usage</h2>
 <p>In short, IPC is a metric that evaluates how much a system can process input time series information.
-Specifically, it generates various linear and nonlinear transformations of input time series using orthogonal polynomials without duplication, and evaluates how well each can be reproduced from the system's current state.
-For more details about IPC and how to use <code>ipc-module</code>, check Chapters 6 and 7 and the sample code of <a href="https://rc-bootcamp.github.io/"><strong>RC bootcamp</strong></a>.
+Specifically, it generates various linear and nonlinear transformations of input time series using orthogonal polynomials without duplication and evaluates how well each can be reproduced from the system's current state.
+For a detailed explanation of IPC and more usage examples of <code>ipc-module</code>, refer to Chapters 6 and 7 and the sample code of <a href="https://rc-bootcamp.github.io/"><strong>RC bootcamp</strong></a>.
 Here, we present a simple example of using this library.</p>
 <h3 id="measuring-ipc-of-echo-state-network">Measuring IPC of echo state network</h3>
 <p>As an example, we show how to measure the IPC of an echo state network (ESN), a type of recurrent neural network.
@@ -795,6 +817,8 @@ When you use it, replace this <code>xs</code> with the time series of the system
 </span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
 </span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape of xs: </span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code>shape of xs: (100000, 20, 100)
+</code></pre></div>
 <p>The response of the ESN, with spectral radius varying from 0.1 to 2.0 in 0.1 steps, is stored, so the shape of <code>xs</code> is <code>(100000, 20, 100)</code>.
 In the next cell, we measure the IPC for this response <code>xs</code> all at once.
 Besides <code>numpy</code>, <code>pytorch</code> and <code>cupy</code> can also be used for fast computation on a GPU.
@@ -872,18 +896,17 @@ Use <a href="profiler/#ipc_module.profiler.UnivariateViewer.to_dataframe"><code>
 </span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
 </span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="kc">None</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code>  0%|          | 0/29 [00:00&lt;?, ?it/s]
-</code></pre></div>
+<p><img alt="png" src="assets/README_14_0.png" /></p>
 <h2 id="license">License</h2>
 <p><code>ipc-module</code> is provided under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
 You are free to use, modify, and redistribute it.
 However, you must include the copyright notice and this permission notice in all copies or substantial portions of the software.</p>
 <h2 id="contributing">Contributing</h2>
 <p>We welcome contributions to the development of <code>ipc-module</code>.</p>
-<h3 id="reporting-issues">Reporting issues</h3>
-<p>If you have any issues or suggestions for improvement, please report them on the <a href="https://github.com/rc-bootcamp/ipc-module/issues">GitHub Issues page</a>.</p>
+<h3 id="reporting-issues-and-suggestions-for-improvement">Reporting issues and suggestions for improvement</h3>
+<p>If you find any bugs or have suggestions for improvement, please report them on the <a href="https://github.com/rc-bootcamp/ipc-module/issues">GitHub Issues page</a>.</p>
 <h3 id="citation">Citation</h3>
-<p>When citing RC bootcamp, please refer to the following information.</p>
+<p>If you use <code>ipc-module</code> in your research, please cite the following information from <a href="https://rc-bootcamp.github.io/">RC bootcamp</a>.</p>
 <div class="language-bibtex highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">inoue2025rcbootcamp</span><span class="p">,</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Reservoir computing bootcamp---from Python/NumPy tutorial for the complete beginners to cutting-edge research topics of reservoir computing}</span><span class="p">,</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Inoue, Katsuma and Kubota, Tomoyuki and Tran, Quoc Hoan and Akashi, Nozomi and Terajima, Ryo and Kabayama, Tempei and Guan, JingChuan and Nakajima, Kohei}</span><span class="p">,</span>
@@ -897,6 +920,8 @@ However, you must include the copyright notice and this permission notice in all
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="na">doi</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{10.1063/5.0283386}</span>
 </span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="contact">Contact</h2>
+<p>For questions or feedback about <code>ipc-module</code>, contact us at <code>k-inoue[at]isi.imi.i.u-tokyo.ac.jp</code>.</p>
 
 
 
