@@ -52,6 +52,16 @@
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Q0FJFSVCHL"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Q0FJFSVCHL",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Q0FJFSVCHL",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -354,6 +364,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -621,6 +681,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -649,7 +759,7 @@ It is also possible to measure the IPC for arbitrary input time series distribut
 <h2 id="installation">Installation</h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ipc-module
 </span></code></pre></div>
-<p>Alternatively, please use various project management tools (such as <code>uv</code>, <code>poetry</code>, <code>pipenv</code>, etc.) to install it.</p>
+<p>Alternatively, you can use various project management tools (such as <code>uv</code>, <code>poetry</code>, <code>pipenv</code>, etc.) to install it.</p>
 <h2 id="usage">Usage</h2>
 <p>In short, IPC is a metric that evaluates how much a system can process input time series information.
 Specifically, it generates various linear and nonlinear transformations of input time series using orthogonal polynomials without duplication, and evaluates how well each can be reproduced from the system's current state.
@@ -685,8 +795,6 @@ When you use it, replace this <code>xs</code> with the time series of the system
 </span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
 </span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape of xs: </span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code>shape of xs: (100000, 20, 100)
-</code></pre></div>
 <p>The response of the ESN, with spectral radius varying from 0.1 to 2.0 in 0.1 steps, is stored, so the shape of <code>xs</code> is <code>(100000, 20, 100)</code>.
 In the next cell, we measure the IPC for this response <code>xs</code> all at once.
 Besides <code>numpy</code>, <code>pytorch</code> and <code>cupy</code> can also be used for fast computation on a GPU.
@@ -764,7 +872,31 @@ Use <a href="profiler/#ipc_module.profiler.UnivariateViewer.to_dataframe"><code>
 </span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
 </span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="kc">None</span>
 </span></code></pre></div>
-<p><img alt="png" src="assets/README_14_0.png" /></p>
+<div class="language-text highlight"><pre><span></span><code>  0%|          | 0/29 [00:00&lt;?, ?it/s]
+</code></pre></div>
+<h2 id="license">License</h2>
+<p><code>ipc-module</code> is provided under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+You are free to use, modify, and redistribute it.
+However, you must include the copyright notice and this permission notice in all copies or substantial portions of the software.</p>
+<h2 id="contributing">Contributing</h2>
+<p>We welcome contributions to the development of <code>ipc-module</code>.</p>
+<h3 id="reporting-issues">Reporting issues</h3>
+<p>If you have any issues or suggestions for improvement, please report them on the <a href="https://github.com/rc-bootcamp/ipc-module/issues">GitHub Issues page</a>.</p>
+<h3 id="citation">Citation</h3>
+<p>When citing RC bootcamp, please refer to the following information.</p>
+<div class="language-bibtex highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">inoue2025rcbootcamp</span><span class="p">,</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Reservoir computing bootcamp---from Python/NumPy tutorial for the complete beginners to cutting-edge research topics of reservoir computing}</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Inoue, Katsuma and Kubota, Tomoyuki and Tran, Quoc Hoan and Akashi, Nozomi and Terajima, Ryo and Kabayama, Tempei and Guan, JingChuan and Nakajima, Kohei}</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="na">year</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="m">2025</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="na">month</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="nv">XX</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{XX}</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="na">volume</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{XX}</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="na">number</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{X}</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="na">pages</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{XXXXXX}</span><span class="p">,</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="na">issn</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{XXXX-XXXX}</span><span class="p">,</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="na">doi</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{10.1063/5.0283386}</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+</span></code></pre></div>
 
 
 
@@ -773,6 +905,8 @@ Use <a href="profiler/#ipc_module.profiler.UnivariateViewer.to_dataframe"><code>
 
 
 
+
+  
 
 
 
