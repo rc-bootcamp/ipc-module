@@ -1,0 +1,45 @@
+[project]
+name = "ipc-module"
+version = "0.1.2"
+description = "GPGPU-accelerated information processing capacity (IPC) module"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipython>=9.7.0",
+    "joblib>=1.5.2",
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+    "polars>=1.35.2",
+    "tqdm>=4.67.1",
+]
+
+[project.optional-dependencies]
+gpu = [
+    "cupy>=13.6.0",
+    "torch>=2.9.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.1.0",
+    "ipywidgets>=8.1.8",
+    "matplotlib>=3.10.7",
+    "nbconvert>=7.16.6",
+    "nbqa>=1.9.1",
+    "ruff>=0.14.5",
+    "twine>=6.2.0",
+]
+mkdocs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.7.0",
+    "mkdocstrings>=0.30.1",
+    "mkdocstrings-python>=1.19.0",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+preview = true
+ignore = ["B018", "E402", "E501"]
+select = ["B", "E", "W", "I", "F", "NPY"]
