@@ -388,10 +388,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reporting-issues-and-suggestions-for-improvement" class="md-nav__link">
+  <a href="#reporting-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reporting issues and suggestions for improvement
+        Reporting issues
       
     </span>
   </a>
@@ -716,10 +716,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#reporting-issues-and-suggestions-for-improvement" class="md-nav__link">
+  <a href="#reporting-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reporting issues and suggestions for improvement
+        Reporting issues
       
     </span>
   </a>
@@ -783,10 +783,9 @@ It is also possible to measure the IPC for arbitrary input time series distribut
 </span></code></pre></div>
 <p>Alternatively, you can use various project management tools (such as <code>uv</code>, <code>poetry</code>, <code>pipenv</code>, etc.) to install it.</p>
 <h2 id="usage">Usage</h2>
-<p>In short, IPC is a metric that evaluates how much a system can process input time series information.
-Specifically, it generates various linear and nonlinear transformations of input time series using orthogonal polynomials without duplication and evaluates how well each can be reproduced from the system's current state.
-For a detailed explanation of IPC and more usage examples of <code>ipc-module</code>, refer to Chapters 6 and 7 and the sample code of <a href="https://rc-bootcamp.github.io/"><strong>RC bootcamp</strong></a>.
-Here, we present a simple example of using this library.</p>
+<p>In short, IPC is a metric that evaluates how much a system can process input time-series information.
+Specifically, it generates various linear and nonlinear transformations of input time series using orthogonal polynomials without duplication and evaluates how well each transformation can be reproduced from the system's current state.
+For a detailed explanation of IPC and more usage examples of <code>ipc-module</code>, refer to <strong>Chapters 6 and 7</strong> and the sample code of <a href="https://rc-bootcamp.github.io/"><strong>RC bootcamp</strong></a>, a hands-on resource for reservoir computing beginners.</p>
 <h3 id="measuring-ipc-of-echo-state-network">Measuring IPC of echo state network</h3>
 <p>As an example, we show how to measure the IPC of an echo state network (ESN), a type of recurrent neural network.
 In the following cell, we generate a 1-input, 100-dimensional ESN and store its response to a 100,000-step input time series generated from i.i.d. uniform random numbers in [-1, 1] as <code>xs</code>.
@@ -871,30 +870,29 @@ Use <a href="profiler/#ipc_module.profiler.UnivariateViewer.to_dataframe"><code>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.facecolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.facecolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ipc_module.helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">visualize_dataframe</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ipc_module.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnivariateViewer</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">viewer</span> <span class="o">=</span> <span class="n">UnivariateViewer</span><span class="p">(</span><span class="s2">&quot;./ipc_esn.npz&quot;</span><span class="p">)</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">esn_sr</span><span class="p">,</span> <span class="n">esn_dim</span> <span class="o">=</span> <span class="n">viewer</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;esn_sr&quot;</span><span class="p">],</span> <span class="n">viewer</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;esn_dim&quot;</span><span class="p">]</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">df</span><span class="p">,</span> <span class="n">rank</span> <span class="o">=</span> <span class="n">viewer</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">max_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">truncate_by_rank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">visualize_dataframe</span><span class="p">(</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">ax</span><span class="p">,</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="n">df</span><span class="p">,</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">xticks</span><span class="o">=</span><span class="n">esn_sr</span><span class="p">,</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">threshold</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">group_by</span><span class="o">=</span><span class="s2">&quot;component&quot;</span><span class="p">,</span>  <span class="c1"># NOTE: Either &quot;degree&quot;, &quot;component&quot;, or &quot;detail&quot; is available.</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="p">)</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">esn_sr</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rank&quot;</span><span class="p">)</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">esn_dim</span> <span class="o">*</span> <span class="mf">1.05</span><span class="p">])</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;ESN Spectral Radius&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="kc">None</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ipc_module.helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">visualize_dataframe</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ipc_module.profiler</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnivariateViewer</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">viewer</span> <span class="o">=</span> <span class="n">UnivariateViewer</span><span class="p">(</span><span class="s2">&quot;./ipc_esn.npz&quot;</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">esn_sr</span><span class="p">,</span> <span class="n">esn_dim</span> <span class="o">=</span> <span class="n">viewer</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;esn_sr&quot;</span><span class="p">],</span> <span class="n">viewer</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;esn_dim&quot;</span><span class="p">]</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">df</span><span class="p">,</span> <span class="n">rank</span> <span class="o">=</span> <span class="n">viewer</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">max_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">truncate_by_rank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">visualize_dataframe</span><span class="p">(</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">ax</span><span class="p">,</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">df</span><span class="p">,</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="n">xticks</span><span class="o">=</span><span class="n">esn_sr</span><span class="p">,</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">group_by</span><span class="o">=</span><span class="s2">&quot;component&quot;</span><span class="p">,</span>  <span class="c1"># NOTE: Either &quot;degree&quot;, &quot;component&quot;, or &quot;detail&quot; is available.</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">)</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">esn_sr</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#333333&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rank&quot;</span><span class="p">)</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="c1"># ax.set_ylim([0, esn_dim * 1.05])</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;ESN Spectral Radius&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="kc">None</span>
 </span></code></pre></div>
 <p><img alt="png" src="assets/README_14_0.png" /></p>
 <h2 id="license">License</h2>
@@ -903,10 +901,11 @@ You are free to use, modify, and redistribute it.
 However, you must include the copyright notice and this permission notice in all copies or substantial portions of the software.</p>
 <h2 id="contributing">Contributing</h2>
 <p>We welcome contributions to the development of <code>ipc-module</code>.</p>
-<h3 id="reporting-issues-and-suggestions-for-improvement">Reporting issues and suggestions for improvement</h3>
+<h3 id="reporting-issues">Reporting issues</h3>
 <p>If you find any bugs or have suggestions for improvement, please report them on the <a href="https://github.com/rc-bootcamp/ipc-module/issues">GitHub Issues page</a>.</p>
 <h3 id="citation">Citation</h3>
-<p>If you use <code>ipc-module</code> in your research, please cite the following information from <a href="https://rc-bootcamp.github.io/">RC bootcamp</a>.</p>
+<p>If you use <code>ipc-module</code> in your research or development, please cite the following details about <a href="https://rc-bootcamp.github.io/">RC bootcamp</a> and its paper.
+<code>ipc-module</code> is part of RC bootcamp and was released on PyPI at the same time as its publication.</p>
 <div class="language-bibtex highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">inoue2025rcbootcamp</span><span class="p">,</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">title</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{Reservoir computing bootcamp---from Python/NumPy tutorial for the complete beginners to cutting-edge research topics of reservoir computing}</span><span class="p">,</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">author</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="s">{Inoue, Katsuma and Kubota, Tomoyuki and Tran, Quoc Hoan and Akashi, Nozomi and Terajima, Ryo and Kabayama, Tempei and Guan, JingChuan and Nakajima, Kohei}</span><span class="p">,</span>
