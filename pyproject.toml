@@ -1,6 +1,6 @@
 [project]
 name = "ipc-module"
-version = "0.1.2"
+version = "1.0.0"
 description = "GPGPU-accelerated information processing capacity (IPC) module"
 readme = "README.md"
 requires-python = ">=3.12"

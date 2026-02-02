@@ -358,7 +358,6 @@ def visualize_dataframe(
         )
         if step_linewidth > 0:
             ax.step(pos, rest + bottom, "#333333", where="mid", linewidth=step_linewidth)
-    ax.set_ylim([0, None])
     ax.tick_params(axis="both", which="major", labelsize=fontsize)
     ax.legend(
         loc="upper left",
