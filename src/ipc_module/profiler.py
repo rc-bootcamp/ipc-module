@@ -226,7 +226,7 @@ class UnivariateViewer(object):
         if squeeze:
             batch_shape = [dim for dim in ipcs.shape[1:] if dim != 1]
             ipcs = ipcs.reshape(-1, *batch_shape)
-            rank = rank.reshape(*batch_shape)
+            rank = rank.reshape(batch_shape)
         df = pl.DataFrame(
             {
                 "degree": np.array(degrees),
